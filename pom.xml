@@ -72,7 +72,6 @@
 	<modules>
 		<module>commons</module>
 		<module>person</module>
-		<module>customer</module>
 	</modules>
 
 </project>
