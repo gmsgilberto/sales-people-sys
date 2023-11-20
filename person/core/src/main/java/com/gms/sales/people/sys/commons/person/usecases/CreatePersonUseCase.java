@@ -7,11 +7,14 @@ import com.gms.sales.people.sys.commons.person.exceptions.DuplicateDocumentIdExc
 import com.gms.sales.people.sys.commons.person.model.Person;
 import com.gms.sales.people.sys.commons.person.model.StatusOfPerson;
 
+import lombok.AllArgsConstructor;
+
+@AllArgsConstructor
 public class CreatePersonUseCase {
 
-	private FindPersonByDocumentIdAdapter findPersonByDocumentIdAdapter;
-	private InsertPersonAdapter insertPersonAdapter;
-	private NewPersonEventSender newPersonEventSender;
+	private final FindPersonByDocumentIdAdapter findPersonByDocumentIdAdapter;
+	private final InsertPersonAdapter insertPersonAdapter;
+	private final NewPersonEventSender newPersonEventSender;
 	
 	
 	public Person create(Person newPerson) {
