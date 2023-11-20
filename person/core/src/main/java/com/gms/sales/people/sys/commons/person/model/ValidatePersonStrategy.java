@@ -9,7 +9,8 @@ abstract class ValidatePersonStrategy {
 	
 	static{
 		validations = Arrays.asList(
-							new ValidateMandatoryFields()
+							new ValidateMandatoryFields(),
+							new ValidateDocumentId()
 						);
 		
 	}

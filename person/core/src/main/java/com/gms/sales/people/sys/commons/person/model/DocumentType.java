@@ -32,7 +32,7 @@ public enum DocumentType {
 		throw new DocumentTypeNotFoundException(code);
 	}
 
-	boolean isValid(PersonType personType) {
+	public boolean isValid(PersonType personType) {
 		
 		for(PersonType type : validaPersonTypes) {
 			if(type == personType) {

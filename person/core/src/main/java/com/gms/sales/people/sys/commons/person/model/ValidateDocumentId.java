@@ -8,16 +8,19 @@ public class ValidateDocumentId extends ValidatePersonStrategy {
 
 	@Override
 	protected void execute(Person person) {
-		if(person.getDocumentId() == null) {
+		
+		var documentId = person.getDocumentId();
+		
+		if(documentId == null) {
 			throw new IllegalArgumentException(spsMessage.toMessage("person.validation.documentId.null"));
-		}else if(! person.getDocumentId().validate()){
-			throw new IllegalArgumentException(spsMessage.toMessage("person.validation.documentId.invalid", person.getDocumentId().getDocumentType()));
+		}else if(! documentId.validate()){
+			throw new IllegalArgumentException(spsMessage.toMessage("person.validation.documentId.invalid", documentId.getDocumentType()));
 		}
 		
 		
-		var document = person.getDocumentId();
+		var document = documentId;
 		if(!document.getDocumentType().isValid(person.getPersonType())) {
-			throw new IllegalArgumentException(spsMessage.toMessage("person.validation.documentId.notpermitted", person.getDocumentId().getDocumentType(), person.getPersonType()));
+			throw new IllegalArgumentException(spsMessage.toMessage("person.validation.documentId.notpermitted", documentId.getDocumentType(), person.getPersonType()));
 		}
 		
 		
