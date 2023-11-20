@@ -3,9 +3,11 @@ package com.gms.sales.people.sys.commons.person.model;
 import java.util.Arrays;
 import java.util.List;
 
-abstract class ValidatePersonStrategy {
+import com.gms.sales.people.sys.commons.person.exceptions.InvalidaPersonFieldsException;
 
-	private static final List<ValidatePersonStrategy> validations;
+abstract class ValidateStrategy {
+
+	private static final List<ValidateStrategy> validations;
 	
 	static{
 		validations = Arrays.asList(
@@ -19,7 +21,7 @@ abstract class ValidatePersonStrategy {
 		
 		var listErros = new StringBuilder();
 		
-		for(ValidatePersonStrategy validation : validations) {
+		for(ValidateStrategy validation : validations) {
 			try {
 				validation.execute(person);
 			}catch (Exception e) {

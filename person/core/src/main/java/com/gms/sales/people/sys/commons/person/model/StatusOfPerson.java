@@ -9,6 +9,7 @@ import lombok.Getter;
 public enum StatusOfPerson {
 
 	DRAFT("DRAFT","person.status.draft"),
+	ACTIVE("ACTIVE","person.status.active"),
 	BLOCKED("BLOCKED","person.status.blocked");
 	
 	private final String code;

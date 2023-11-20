@@ -1,4 +1,4 @@
-package com.gms.sales.people.sys.commons.person.model;
+package com.gms.sales.people.sys.commons.person.exceptions;
 
 import com.gms.sales.people.sys.commons.exceptions.SPSException;
 

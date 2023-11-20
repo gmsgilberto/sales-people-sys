@@ -3,7 +3,7 @@ package com.gms.sales.people.sys.commons.person.model;
 import com.gms.sales.people.sys.commons.internationalization.SPSMessage;
 import com.gms.sales.people.sys.commons.text.TextUtil;
 
-public class ValidateMandatoryFields extends ValidatePersonStrategy {
+public class ValidateMandatoryFields extends ValidateStrategy {
 
 	private final SPSMessage spsMessage = SPSMessage.getInstance();
 
@@ -35,6 +35,8 @@ public class ValidateMandatoryFields extends ValidatePersonStrategy {
 		if(!message.isEmpty()) {
 			throw new IllegalArgumentException(message.toString());
 		}
+		
+		
 		
 		
 	}

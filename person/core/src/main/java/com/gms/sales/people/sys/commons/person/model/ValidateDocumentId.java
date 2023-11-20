@@ -2,7 +2,7 @@ package com.gms.sales.people.sys.commons.person.model;
 
 import com.gms.sales.people.sys.commons.internationalization.SPSMessage;
 
-public class ValidateDocumentId extends ValidatePersonStrategy {
+public class ValidateDocumentId extends ValidateStrategy {
 
 	private final SPSMessage spsMessage = SPSMessage.getInstance();
 
@@ -13,7 +13,9 @@ public class ValidateDocumentId extends ValidatePersonStrategy {
 		
 		if(documentId == null) {
 			throw new IllegalArgumentException(spsMessage.toMessage("person.validation.documentId.null"));
-		}else if(! documentId.validate()){
+		}
+		
+		if(!documentId.isValid()){
 			throw new IllegalArgumentException(spsMessage.toMessage("person.validation.documentId.invalid", documentId.getDocumentType()));
 		}
 		

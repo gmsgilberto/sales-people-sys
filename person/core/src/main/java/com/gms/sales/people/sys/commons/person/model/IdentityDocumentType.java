@@ -4,26 +4,31 @@ import com.gms.sales.people.sys.commons.person.exceptions.DocumentTypeNotFoundEx
 
 import lombok.Getter;
 
-@Getter
-public enum DocumentType {
+
+public enum IdentityDocumentType {
 
 	CPF("CPF","Cadastro de pessoal física", PersonType.NATURAL_PERSON),
 	CNPJ("CNPJ","Cadastro Nacional de Pessoal Jurídica",PersonType.LEGAL_PERSON),
 	VISA("VISA","Número da Passaporte",PersonType.NATURAL_PERSON);
-	
+
+	@Getter
 	private final String code;
+	
+	@Getter
 	private final String name;
+	
+	
 	private PersonType[] validaPersonTypes;
 	
-	DocumentType(String code, String name, PersonType...validaPersonTypes){
+	IdentityDocumentType(String code, String name, PersonType...validaPersonTypes){
 		this.code = code;
 		this.name = name;
 		this.validaPersonTypes = validaPersonTypes;
 	}
 	
-	public static DocumentType get(String code) {
+	public static IdentityDocumentType get(String code) {
 		
-		for(DocumentType type: values()) {
+		for(IdentityDocumentType type: values()) {
 			if(type.code.equalsIgnoreCase(code)) {
 				return type;
 			}

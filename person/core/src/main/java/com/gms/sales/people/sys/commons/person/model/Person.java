@@ -2,10 +2,12 @@ package com.gms.sales.people.sys.commons.person.model;
 
 import java.io.Serializable;
 
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 
-@Data
+@Getter
+@Setter
 public class Person implements Serializable{
 
 	private static final long serialVersionUID = 1L;
@@ -14,17 +16,17 @@ public class Person implements Serializable{
 	private String firstName;
 	private String lastName;
 	private PersonType personType;
-	private DocumentId documentId;
+	private IdentityDocument documentId;
 	private StatusOfPerson status;
 	
 
-	public boolean isBlocked() {
-		return this.status == StatusOfPerson.BLOCKED;
+	public boolean isActive() {
+		return this.status == StatusOfPerson.ACTIVE;
 	}
 
 
 	public void validate() {
-		ValidatePersonStrategy.validate(this);
+		ValidateStrategy.validate(this);
 	}
 	
 }

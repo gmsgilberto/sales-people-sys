@@ -13,14 +13,16 @@ import lombok.Getter;
 
 @Getter
 @AllArgsConstructor
-public class DocumentId implements Serializable {
+public class IdentityDocument implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	
-	private DocumentType documentType;
-	private String documentId;
-	public boolean validate() {
-		return !TextUtil.isBlank(documentId) && documentType != null;
+	private final IdentityDocumentType documentType;
+	private final String documentId;
+	
+	
+	public boolean isValid() {
+		return !TextUtil.isBlank(getDocumentId()) && getDocumentType() != null;
 	}
 	
 
